@@ -272,7 +272,7 @@ const Dashboard = () => {
               <div className="option-arrow">→</div>
             </div>
 
-            <div 
+            {/*<div 
               className={`option-card ${isLoadingBusinesses ? 'loading' : ''}`} 
               onClick={handleRecordVoice}
               style={{ pointerEvents: isLoadingBusinesses ? 'none' : 'auto', opacity: isLoadingBusinesses ? 0.7 : 1 }}
@@ -285,7 +285,7 @@ const Dashboard = () => {
                 <p>{t('recordVoiceDescription')}</p>
               </div>
               <div className="option-arrow">→</div>
-            </div>
+            </div>*/}
           </div>
         </div>
       </main>
@@ -307,12 +307,12 @@ const Dashboard = () => {
         onPostCreated={handlePostCreated}
       />
       
-      <RecordVoiceModal 
+      {/*<RecordVoiceModal 
         isOpen={isRecordVoiceModalOpen} 
         onClose={closeRecordVoiceModal}
         businesses={businesses}
         onBusinessAdded={handleBusinessAdded}
-      />
+      />*/}
       
       <ContentDetailModal 
         isOpen={isContentDetailModalOpen}
@@ -350,7 +350,7 @@ const Dashboard = () => {
                   <p className="postPreview">{post.preview}</p>
               </div>
               <div className="postActions">
-                <button 
+                {/*<button 
                   className="generateImageButton"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -360,7 +360,7 @@ const Dashboard = () => {
                 >
                   <Sparkles size={14} />
                   {t('generateImage')}
-                </button>
+                </button>*/}
               </div>
             </div>
             ))}
