@@ -35,7 +35,7 @@ const Dashboard = () => {
     const fetchBusinesses = async () => {
       try {
         setIsLoadingBusinesses(true);
-        const response = await axios.get('http:/future-content-creator-2.onrender.com/api/stores', {
+        const response = await axios.get('https://future-content-creator-2.onrender.com/api/stores', {
           withCredentials: true
         });
         setBusinesses(response.data);
@@ -171,7 +171,7 @@ const Dashboard = () => {
   // Handle new business addition
   const handleBusinessAdded = async (businessData) => {
     try {
-      const response = await axios.post('http:/future-content-creator-2.onrender.com/api/stores/create', businessData, {
+      const response = await axios.post('https://future-content-creator-2.onrender.com/api/stores/create', businessData, {
         withCredentials: true
       });
       const newBusiness = response.data;
@@ -199,7 +199,7 @@ const Dashboard = () => {
 
   const handleInitialBusinessFormSubmit = async (businessData) => {
     try {
-      const response = await axios.post('http:/future-content-creator-2.onrender.com/api/stores/create', businessData, {
+      const response = await axios.post('https://future-content-creator-2.onrender.com/api/stores/create', businessData, {
         withCredentials: true
       });
       const newBusiness = response.data;
