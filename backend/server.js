@@ -16,22 +16,25 @@ const userRoutes = require('./routes/users');
 const mongoURL = "mongodb+srv://tn8070250_db_user:qjYwXcDWFInUxNUj@cluster0.2vx57fm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 mongoose.connect(mongoURL).then(() => {
     console.log('connected')
-    app.listen(process.env.PORT,() => {
-        console.log('app is running on localhost:'+process.env.PORT);
-        })
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT,() => {
+        console.log('app is running on port:' + PORT);
+    })
 }).catch((error) => {console.log(error)});
+
 
 
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(cors(
-    {
-        origin : "https://future-content-creator-u576.vercel.app",
-        credentials : true
-    }
-)); //security WARNING
+// Allow CORS from the frontend. Set FRONTEND_URL env var in production (Vercel URL),
+// fallback to localhost:3000 for local development.
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+app.use(cors({
+    origin: FRONTEND_URL,
+    credentials: true
+})); //security WARNING
 
 app.get('/', (req, res) => {
   res.send('Hello World')

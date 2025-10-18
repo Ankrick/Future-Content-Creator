@@ -11,6 +11,8 @@ import BusinessInfoForm from '../components/BusinessInfoForm';
 import UserDropdown from '../components/UserDropdown';
 import axios from 'axios';
 import './Dashboard.css';
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -35,7 +37,7 @@ const Dashboard = () => {
     const fetchBusinesses = async () => {
       try {
         setIsLoadingBusinesses(true);
-        const response = await axios.get('https://future-content-creator-2.onrender.com/api/stores', {
+        const response = await axios.get(`${API_BASE}/api/stores`, {
           withCredentials: true
         });
         setBusinesses(response.data);
@@ -171,7 +173,7 @@ const Dashboard = () => {
   // Handle new business addition
   const handleBusinessAdded = async (businessData) => {
     try {
-      const response = await axios.post('https://future-content-creator-2.onrender.com/api/stores/create', businessData, {
+      const response = await axios.post(`${API_BASE}/api/stores/create`, businessData, {
         withCredentials: true
       });
       const newBusiness = response.data;
@@ -199,7 +201,7 @@ const Dashboard = () => {
 
   const handleInitialBusinessFormSubmit = async (businessData) => {
     try {
-      const response = await axios.post('https://future-content-creator-2.onrender.com/api/stores/create', businessData, {
+      const response = await axios.post(`${API_BASE}/api/stores/create`, businessData, {
         withCredentials: true
       });
       const newBusiness = response.data;

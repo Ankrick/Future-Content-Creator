@@ -61,9 +61,9 @@ const WriteTextModal = ({ isOpen, onClose, onPostCreated, onBusinessAdded, busin
       };
 
       console.log('Sending data to API:', promptDetails);
-      console.log('API URL:', 'https://future-content-creator-2.onrender.com/api/prompts/copy');
+      console.log('API URL:', 'http://localhost:4000/api/prompts/copy');
 
-      const res = await axios.post('https://future-content-creator-2.onrender.com/api/prompts/copy', promptDetails);
+      const res = await axios.post('http://localhost:4000/api/prompts/copy', promptDetails);
 
       if(res.status == 200){
         setIsLoading(false);

@@ -69,7 +69,7 @@ const UploadImageModal = ({ isOpen, onClose, businesses = [], onBusinessAdded, o
         console.log(pair[0] + ', ', pair[1]);
       }
 
-      const res = await axios.post('https://future-content-creator-2.onrender.com/api/prompts/imageInput', formData)
+      const res = await axios.post('http://localhost:4000/api/prompts/imageInput', formData)
       console.log('=== UploadImageModal API Response Debug ===');
       console.log('Full API Response:', res);
       console.log('Response Data:', res.data);

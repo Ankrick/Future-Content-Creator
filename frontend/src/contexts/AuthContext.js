@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -24,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuthStatus = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('https://future-content-creator-2.onrender.com/api/users/me', {
+      const response = await axios.get(`${API_BASE}/api/users/me`, {
         withCredentials: true
       });
       setUser(response.data);
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://future-content-creator-2.onrender.com/api/users/login', {
+      const response = await axios.post(`${API_BASE}/api/users/login`, {
         email,
         password
       }, {
@@ -58,7 +60,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, username, email, password) => {
     try {
-      const response = await axios.post('https://future-content-creator-2.onrender.com/api/users/register', {
+      const response = await axios.post(`${API_BASE}/api/users/register`, {
         name,
         username,
         email,
@@ -78,7 +80,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('https://future-content-creator-2.onrender.com/api/users/logout', {}, {
+      await axios.post(`${API_BASE}/api/users/logout`, {}, {
         withCredentials: true
       });
     } catch (error) {
