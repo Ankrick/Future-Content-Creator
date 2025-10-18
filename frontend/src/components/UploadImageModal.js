@@ -6,6 +6,8 @@ import BusinessInfoForm from './BusinessInfoForm';
 import './UploadImageModal.css';
 import axios from 'axios';
 
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
 const UploadImageModal = ({ isOpen, onClose, businesses = [], onBusinessAdded, onPostCreated }) => {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +71,7 @@ const UploadImageModal = ({ isOpen, onClose, businesses = [], onBusinessAdded, o
         console.log(pair[0] + ', ', pair[1]);
       }
 
-      const res = await axios.post('http://localhost:4000/api/prompts/imageInput', formData)
+  const res = await axios.post(`${API_BASE}/api/prompts/imageInput`, formData, { withCredentials: true })
       console.log('=== UploadImageModal API Response Debug ===');
       console.log('Full API Response:', res);
       console.log('Response Data:', res.data);

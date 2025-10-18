@@ -6,6 +6,8 @@ import BusinessInfoForm from './BusinessInfoForm';
 import './RecordVoiceModal.css';
 import axios from 'axios';
 
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+
 const RecordVoiceModal = ({ isOpen, onClose, businesses = [], onBusinessAdded }) => {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +58,7 @@ const RecordVoiceModal = ({ isOpen, onClose, businesses = [], onBusinessAdded })
   
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:4000/api/prompts/voice", formData);
+  const res = await axios.post(`${API_BASE}/api/prompts/voice`, formData, { withCredentials: true });
     
       const result = await res.json();
       console.log("Gemini result:", result);
