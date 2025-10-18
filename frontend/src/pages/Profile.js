@@ -72,7 +72,7 @@ const Profile = () => {
       }
       
       // TODO: Replace with actual API call when backend endpoint is ready
-      // const response = await axios.put('http://https://future-content-creator-2.onrender.com//api/users/profile', formData, {
+      // const response = await axios.put('http:/future-content-creator-2.onrender.com/api/users/profile', formData, {
       //   withCredentials: true,
       //   headers: {
       //     'Content-Type': 'multipart/form-data'

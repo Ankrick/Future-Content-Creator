@@ -56,7 +56,7 @@ const RecordVoiceModal = ({ isOpen, onClose, businesses = [], onBusinessAdded })
   
     setIsLoading(true);
     try {
-      const res = await axios.post("http://https://future-content-creator-2.onrender.com//api/prompts/voice", formData);
+      const res = await axios.post("http:/future-content-creator-2.onrender.com/api/prompts/voice", formData);
     
       const result = await res.json();
       console.log("Gemini result:", result);
