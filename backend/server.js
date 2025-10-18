@@ -28,7 +28,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(cors(
     {
-        origin : "https://future-content-creator-ulmb.vercel.app",
+        origin : "https://future-content-creator-u576.vercel.app",
         credentials : true
     }
 )); //security WARNING
