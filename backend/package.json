@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@google/genai": "^1.24.0",
+    "@huggingface/inference": "^4.11.1",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.1",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "openai": "^6.3.0",
+    "openapi": "^1.0.1"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}

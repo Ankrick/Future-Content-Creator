@@ -1,0 +1,22 @@
+
+
+/* Myanmar Font Support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.myanmar-text {
+  font-family: 'Noto Sans Myanmar', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* App Styles */
+.App {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive font sizing for Myanmar text */
+[lang="my"], .lang-my {
+  font-family: 'Noto Sans Myanmar', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+

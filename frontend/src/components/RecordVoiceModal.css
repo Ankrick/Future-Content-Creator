@@ -1,0 +1,152 @@
+/* Record Voice Modal - inherits base styles from WriteTextModal */
+@import './WriteTextModal.css';
+
+/* Recording Specific Styles */
+.recording-container {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f7fafc;
+}
+
+.recording-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.record-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.record-button.start {
+  background: #48bb78;
+  color: white;
+}
+
+.record-button.start:hover {
+  background: #38a169;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(72, 187, 120, 0.3);
+}
+
+.record-button.stop {
+  background: #e53e3e;
+  color: white;
+}
+
+.record-button.stop:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(229, 62, 62, 0.3);
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(229, 62, 62, 0.1);
+  border-radius: 8px;
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+.recording-pulse {
+  width: 12px;
+  height: 12px;
+  background: #e53e3e;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(229, 62, 62, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, 0);
+  }
+}
+
+.recording-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.recording-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #48bb78;
+  font-weight: 600;
+  background: rgba(72, 187, 120, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.re-record-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.re-record-button:hover {
+  background: #5a67d8;
+  transform: translateY(-1px);
+}
+
+/* Override form class name for record form */
+.record-form {
+  padding: 32px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recording-container {
+    padding: 16px;
+  }
+  
+  .record-button {
+    min-width: 150px;
+    padding: 14px 20px;
+  }
+  
+  .recording-info {
+    width: 100%;
+  }
+  
+  .recording-status {
+    width: 100%;
+    justify-content: center;
+  }
+}
