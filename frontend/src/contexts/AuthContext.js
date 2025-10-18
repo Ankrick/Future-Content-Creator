@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuthStatus = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:4000/api/users/me', {
+      const response = await axios.get('http://https://future-content-creator-2.onrender.com//api/users/me', {
         withCredentials: true
       });
       setUser(response.data);
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/users/login', {
+      const response = await axios.post('http://https://future-content-creator-2.onrender.com//api/users/login', {
         email,
         password
       }, {
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, username, email, password) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/users/register', {
+      const response = await axios.post('http://https://future-content-creator-2.onrender.com//api/users/register', {
         name,
         username,
         email,
@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('http://localhost:4000/api/users/logout', {}, {
+      await axios.post('http://https://future-content-creator-2.onrender.com//api/users/logout', {}, {
         withCredentials: true
       });
     } catch (error) {
