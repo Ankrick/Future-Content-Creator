@@ -170,17 +170,17 @@ const WriteTextModal = ({ isOpen, onClose, onPostCreated, onBusinessAdded, busin
 
           {/* Text Prompt Area */}
           <div className="form-group">
-            <label htmlFor="textPrompt">Text Prompt</label>
+            <label htmlFor="textPrompt">{t('textPrompt')}</label>
             <textarea
               id="textPrompt"
               className={`form-textarea ${errors.textPrompt ? 'error' : ''}`}
-              placeholder="Describe what kind of text content you want to create..."
+              placeholder={t('textPromptPlaceholder')}
               rows="4"
               {...register('textPrompt', {
-                required: 'Text prompt is required',
+                required: t('textPromptRequired'),
                 minLength: {
                   value: 10,
-                  message: 'Prompt must be at least 10 characters'
+                  message: t('textPromptMinLength')
                 }
               })}
             />
