@@ -20,7 +20,7 @@ const PromptController = {
         //need page name
         try{
             // Only allow user to view their own stores
-            let { businessId, contentLength, contentPurpose, emotion, reference, targetAge,  tone } = req.body;
+            let { businessId, contentLength, textPrompt, contentPurpose, emotion, reference, targetAge,  tone } = req.body;
 
             let store = await Stores.findOne({ businessName: businessId });
 
@@ -28,8 +28,16 @@ const PromptController = {
                 return res.status(404).json({msg: 'store not found'})
             }
 
+            
             const MMPreview = "ဒီအတွက်စာပိုဒ်ကို social media အတွက် ကမ္ဘာကျော် copywriter ပုံစံနဲ့မြန်မာလိုရေးပေးပါ။"
-            const task = "Draft me a social media post for facebook."
+
+            let task;
+            if (textPrompt && textPrompt.trim() !== "") {
+              task = `Draft me a social media post for facebook about this: ${textPrompt}\n`;
+            }else{
+              task = "Draft me a social media post for facebook."
+            }
+
             const promptChain = "Create 5 different posts to choose from."
             const personality = "Engineer the post like a digital marketing expert specialized in education field, PhD level."
             const format = `Respond **only** in the following JSON format:
@@ -46,10 +54,6 @@ const PromptController = {
             // Build the prompt dynamically
             let prompt = `${MMPreview}\n${task}\n${promptChain}\n${personality}\n`;
 
-            // Add reference only if it exists
-            if (reference && reference.trim() !== "") {
-                prompt += `Take this post as reference: ${reference}\n`;
-            }
           
             // Add the rest of the prompt (common for both cases)
             prompt += `Business name : ${store.businessName}\n`;
@@ -63,6 +67,11 @@ const PromptController = {
             prompt += `The post must evoke ${emotion} emotion\n`;
             prompt += `Target Age: ${targetAge}\n`;
             prompt += format;
+
+            // Add reference only if it exists
+            if (reference && reference.trim() !== "") {
+                prompt += `Take this post as reference: ${reference}\n`;
+            }
           
             console.log(prompt)
           

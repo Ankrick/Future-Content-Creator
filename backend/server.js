@@ -30,7 +30,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 // Allow CORS from the frontend. Set FRONTEND_URL env var in production (Vercel URL),
 // fallback to localhost:3000 for local development.
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const FRONTEND_URL = 'http://localhost:3000';
 app.use(cors({
     origin: FRONTEND_URL,
     credentials: true

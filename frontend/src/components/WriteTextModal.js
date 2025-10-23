@@ -55,6 +55,7 @@ const WriteTextModal = ({ isOpen, onClose, onPostCreated, onBusinessAdded, busin
       const promptDetails = {
         businessId: data.businessId,
         contentLength: data.contentLength,
+        textPrompt: data.textPrompt,
         tone: data.tone,
         targetAge: data.targetAge,
         contentPurpose: data.contentPurpose,
@@ -165,6 +166,25 @@ const WriteTextModal = ({ isOpen, onClose, onPostCreated, onBusinessAdded, busin
               </button>
             </div>
             {errors.businessId && <span className="error-message">{errors.businessId.message}</span>}
+          </div>
+
+          {/* Text Prompt Area */}
+          <div className="form-group">
+            <label htmlFor="textPrompt">Text Prompt</label>
+            <textarea
+              id="textPrompt"
+              className={`form-textarea ${errors.textPrompt ? 'error' : ''}`}
+              placeholder="Describe what kind of text content you want to create..."
+              rows="4"
+              {...register('textPrompt', {
+                required: 'Text prompt is required',
+                minLength: {
+                  value: 10,
+                  message: 'Prompt must be at least 10 characters'
+                }
+              })}
+            />
+            {errors.textPrompt && <span className="error-message">{errors.textPrompt.message}</span>}
           </div>
 
           {/* Content Length */}
